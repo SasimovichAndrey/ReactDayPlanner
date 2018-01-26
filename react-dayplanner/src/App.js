@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todo from './Todo'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addTodo } from './actions/todoActions'
 
 class App extends Component {
+  renderTodoList(){
+    const { todos } = this.props;
+
+    return(Object.values(todos).map((todo) => 
+          <Todo {...todo} key={todo.id}/>
+    ))
+  }
+
   render() {
+    const { addTodo } = this.props;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {this.renderTodoList()}
+        <input type="button" onClick={ () => addTodo() } value="add todo"/>
       </div>
     );
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    todos: state.todos
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    addTodo: bindActionCreators(addTodo, dispatch)
+  }
+}
+
+App = connect(mapStateToProps,
+   mapDispatchToProps)(App);
 
 export default App;

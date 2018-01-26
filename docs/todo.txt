@@ -2,3 +2,4 @@ redux.compose
 redux.combineReducers
 redux-thunk
 formReducer.plugin
+router
