@@ -2,21 +2,39 @@
   "todos": [
     {
       "id": 1,
-      "startTime": "start",
-      "endTime": "end",
+      "startTime": "2018-03-21T14:10:00.974Z",
+      "endTime": "2018-03-21T14:10:00.974Z",
       "description": "test todo"
     },
     {
       "id": 2,
-      "startTime": "start 2",
-      "endTime": "end 2",
+      "startTime": "2018-03-21T14:10:00.974Z",
+      "endTime": "2018-03-21T14:10:00.974Z",
       "description": "test todo 2"
     },
     {
-      "startTime": "start 3",
-      "endTime": "end 3",
+      "startTime": "2018-03-21T14:26:13.806Z",
+      "endTime": "2018-03-21T14:26:13.806Z",
       "description": "test todo 3",
       "id": 3
+    },
+    {
+      "startTime": "2018-03-21T14:26:17.042Z",
+      "endTime": "2018-03-21T14:26:17.042Z",
+      "description": "test todo 3",
+      "id": 4
+    },
+    {
+      "startTime": "2018-03-21T14:50:17.042Z",
+      "endTime": "2018-03-21T14:50:17.042Z",
+      "description": "user input",
+      "id": 5
+    },
+    {
+      "startTime": "2018-03-21T14:51:17.042Z",
+      "endTime": "2018-03-21T14:51:17.042Z",
+      "description": "lalzls",
+      "id": 6
     }
   ]
 }

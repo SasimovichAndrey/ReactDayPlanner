@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Todo from './Todo'
+import Todo from './components/Todo'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addTodo, getTodos } from './actions/todoActions'
 import UserView from './components/User'
+import AddTodoForm from './components/AddTodoForm'
+import moment from 'moment'
 
 class App extends Component {
   componentDidMount(){
@@ -26,16 +28,14 @@ class App extends Component {
       <div className="App">
         <UserView/>
         {this.renderTodoList()}
-        <input type="button" onClick={ () => this.onAddTodo() } value="add todo"/>
+        <AddTodoForm onSubmit={(newTodo) => this.onAddTodo(newTodo)}/>
       </div>
     );
   }
 
-  onAddTodo(){
+  onAddTodo(todoFromForm){
     var newTodo = {
-        startTime: 'start 3',
-        endTime: 'end 3',
-        description: 'test todo 3'
+        ...todoFromForm
     }
 
     this.props.addTodo(newTodo);
