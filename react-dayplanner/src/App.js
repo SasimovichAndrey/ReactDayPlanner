@@ -3,9 +3,14 @@ import './App.css';
 import Todo from './Todo'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addTodo } from './actions/todoActions'
+import { addTodo, getTodos } from './actions/todoActions'
+import UserView from './components/User'
 
 class App extends Component {
+  componentDidMount(){
+    this.props.getTodos();
+  }
+
   renderTodoList(){
     const { todos } = this.props;
 
@@ -19,10 +24,21 @@ class App extends Component {
 
     return (
       <div className="App">
+        <UserView/>
         {this.renderTodoList()}
-        <input type="button" onClick={ () => addTodo() } value="add todo"/>
+        <input type="button" onClick={ () => this.onAddTodo() } value="add todo"/>
       </div>
     );
+  }
+
+  onAddTodo(){
+    var newTodo = {
+        startTime: 'start 3',
+        endTime: 'end 3',
+        description: 'test todo 3'
+    }
+
+    this.props.addTodo(newTodo);
   }
 }
 
@@ -32,10 +48,9 @@ function mapStateToProps (state) {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return {
-    addTodo: bindActionCreators(addTodo, dispatch)
-  }
+var mapDispatchToProps = {
+  addTodo: addTodo,
+  getTodos: getTodos
 }
 
 App = connect(mapStateToProps,
