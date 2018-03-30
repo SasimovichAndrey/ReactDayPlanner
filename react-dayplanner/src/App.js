@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Todo from './components/Todo'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { addTodo, getTodos } from './actions/todoActions'
 import UserView from './components/User'
 import AddTodoForm from './components/AddTodoForm'
-import moment from 'moment'
 
 class App extends Component {
   constructor(props){
@@ -25,6 +23,7 @@ class App extends Component {
     this.props.getTodos();
   }
 
+  /* Render methods */  
   renderTodoList(){
     const { todos } = this.props;
 
@@ -36,8 +35,6 @@ class App extends Component {
   }
 
   render() {
-    const { addTodo } = this.props;
-
     return (
       <div className="App">
         <UserView/>
@@ -46,18 +43,17 @@ class App extends Component {
           {...this.state.newTodo}
           onSubmit={() => this.onAddTodo()} 
           onTodoChanged={(propName, value) => this.onNewTodoChanged(propName, value)}
-          // onStartTimeChanged={(startTime) => this.onStartTimeChanged(startTime)} 
-          // onEndTimeChanged={(endTime) => this.onEndTimeChanged(endTime)} 
-          // onDescriptionChanged={(description) => this.onDescriptionChanged(description)}
         />
       </div>
     );
   }
 
+
+  /* Event handlers */
   onAddTodo(){
     var newTodo = Object.assign({}, this.state.newTodo,{
-      startTime: moment(this.state.newTodo.startTime),
-      endTime: moment(this.state.newTodo.endTime)
+      startTime: this.state.newTodo.startTime,
+      endTime: this.state.newTodo.endTime
     })
 
     this.setState({
@@ -75,26 +71,7 @@ class App extends Component {
     this.setState({
       newTodo: Object.assign({}, this.state.newTodo, {[propName]: value})
     })
-  }
-
-  // onStartTimeChanged(startTime){
-  //   this.setState({
-  //     newTodo: Object.assign({}, this.state.newTodo, {startTime: startTime})
-  //   })
-  // }
-
-  // onEndTimeChanged(endTime){
-  //   this.setState({
-  //     newTodo: Object.assign({}, this.state.newTodo, {endTime: endTime})
-  //   })
-  // }
-
-  // onDescriptionChanged(description){
-  //   this.setState({
-  //     newTodo: Object.assign({}, this.state.newTodo, {description: description})
-  //   })
-  // }
-  
+  } 
 }
 
 function mapStateToProps (state) {
