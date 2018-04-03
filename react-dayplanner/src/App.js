@@ -12,9 +12,10 @@ class App extends Component {
 
     this.state = {
       newTodo:{
-        startTime: "",
-        endTime: "",
-        description: ""
+        startTime: null,
+        endTime: null,
+        description: "",
+        isValid: false
       }
     }
   }
@@ -26,8 +27,6 @@ class App extends Component {
   /* Render methods */  
   renderTodoList(){
     const { todos } = this.props;
-
-    console.log("app rendered")
 
     return(Object.values(todos).map((todo) => 
           <Todo {...todo} key={todo.id}/>
@@ -58,9 +57,10 @@ class App extends Component {
 
     this.setState({
       newTodo:{
-        startTime: "",
-        endTime: "",
-        description: ""
+        startTime: null,
+        endTime: null,
+        description: "",
+        isValid: false
       }
     })
 

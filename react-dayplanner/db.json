@@ -35,6 +35,19 @@
       "endTime": "2018-03-21T14:13:00.974Z",
       "description": "123",
       "id": 6
+    },
+    {
+      "startTime": "",
+      "endTime": "",
+      "description": "",
+      "id": 7
+    },
+    {
+      "startTime": "2018-04-09T21:00:00.000Z",
+      "endTime": null,
+      "description": "123",
+      "isValid": false,
+      "id": 8
     }
   ]
 }
