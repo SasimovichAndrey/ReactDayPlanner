@@ -29,9 +29,11 @@ class App extends Component {
     const { todos } = this.props;
 
     return(
-      <div className="todo-list">
+      <div className="todo-list row">
         {Object.values(todos).map((todo) => 
-          <Todo {...todo} key={todo.id}/>)
+          <div className="col-12 col-md-3" key={todo.id}>
+            <Todo {...todo} />
+          </div>)
         }
       </div>
       )
@@ -39,8 +41,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <UserView/>
+      <div className="App container">
+        <div className="row">
+          <div className="col-12">
+            <UserView/>
+          </div>
+        </div>
         {this.renderTodoList()}
         <AddTodoForm 
           {...this.state.newTodo}

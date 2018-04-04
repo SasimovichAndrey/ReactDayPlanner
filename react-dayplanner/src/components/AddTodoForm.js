@@ -27,32 +27,51 @@ export default class AddTodoForm extends Component{
 
     render(){
         return(
-            <div className="add-todo-form">
-                Start date 
-                <DatePicker 
-                    selected={this.props.startTime == null ? null : moment(this.props.startTime)} 
-                    onChange={(date) => this.onTodoChanged("startTime", date)} 
-                    timeFormat="HH:mm"
-                    dateFormat="LLL"
-                    showTimeSelect
-                    className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
-                    />
-                <br/>
-                End date
-                <DatePicker 
-                    selected={this.props.endTime == null ? null : moment(this.props.endTime)} 
-                    onChange={(date) => this.onTodoChanged("endTime", date)} 
-                    timeFormat="HH:mm"
-                    dateFormat="LLL"
-                    showTimeSelect
-                    className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
-                <br/>
-                Description 
-                <input value={this.props.description} type="text" onChange={(ev) => this.onTodoChanged("description", ev.target.value)}
-                    className={this.state.description.isValid  || !this.state.description.isTouched ? null: "form-error"}
-                />
-                <br/>
-                <input type="button" onClick={ () => this.props.onSubmit() } value="add todo" disabled={!this.state.isValid}/>
+            <div className="add-todo-form form">
+                <div className="row form-row justify-content-center">
+                    <div className="col-12 col-md-2">
+                    Start date 
+                    </div>
+                    <div className="col-12 col-md-3">
+                        <DatePicker 
+                            selected={this.props.startTime == null ? null : moment(this.props.startTime)} 
+                            onChange={(date) => this.onTodoChanged("startTime", date)} 
+                            timeFormat="HH:mm"
+                            dateFormat="LLL"
+                            showTimeSelect
+                            className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
+                            />
+                    </div>
+                </div>
+                <div className="row form-row justify-content-center">
+                    <div className="col-12 col-md-2">
+                        End date
+                    </div>
+                    <div className="col-12 col-md-3">
+                        <DatePicker 
+                            selected={this.props.endTime == null ? null : moment(this.props.endTime)} 
+                            onChange={(date) => this.onTodoChanged("endTime", date)} 
+                            timeFormat="HH:mm"
+                            dateFormat="LLL"
+                            showTimeSelect
+                            className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
+                    </div>
+                </div>
+                <div className="row form-row justify-content-center">
+                    <div className="col-12 col-md-2">
+                        Description
+                    </div>
+                    <div className="col-12 col-md-3">
+                        <input value={this.props.description} type="text" onChange={(ev) => this.onTodoChanged("description", ev.target.value)}
+                            className={this.state.description.isValid  || !this.state.description.isTouched ? null: "form-error"}
+                        />
+                    </div>
+                </div>
+                <div className="row form-row justify-content-center">
+                    <div className="col-12 col-md-5">
+                        <input type="button" onClick={ () => this.props.onSubmit() } value="add todo" disabled={!this.state.isValid}/>
+                    </div>
+                </div>
             </div>
         )
     }
