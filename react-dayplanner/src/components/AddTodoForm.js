@@ -11,13 +11,16 @@ export default class AddTodoForm extends Component{
         this.state = {
             isValid: false,
             startTime:{
-                isValid: false
+                isValid: false,
+                isTouched: false
             },
             endTime:{
-                isValid: false
+                isValid: false,
+                isTouched: false
             },
             description: {
-                isValid: false
+                isValid: false,
+                isTouched: false
             }
         }
     }
@@ -32,7 +35,7 @@ export default class AddTodoForm extends Component{
                     timeFormat="HH:mm"
                     dateFormat="LLL"
                     showTimeSelect
-                    className={this.state.startTime.isValid ? null: "form-error"}
+                    className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
                     />
                 <br/>
                 End date
@@ -42,11 +45,11 @@ export default class AddTodoForm extends Component{
                     timeFormat="HH:mm"
                     dateFormat="LLL"
                     showTimeSelect
-                    className={this.state.endTime.isValid ? null: "form-error"}/>
+                    className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
                 <br/>
                 Description 
                 <input value={this.props.description} type="text" onChange={(ev) => this.onTodoChanged("description", ev.target.value)}
-                    className={this.state.description.isValid ? null: "form-error"}
+                    className={this.state.description.isValid  || !this.state.description.isTouched ? null: "form-error"}
                 />
                 <br/>
                 <input type="button" onClick={ () => this.props.onSubmit() } value="add todo" disabled={!this.state.isValid}/>
@@ -69,9 +72,13 @@ export default class AddTodoForm extends Component{
             case "description":
                 newState[propName] = Object.assign({}, this.state.startTime,
                              {
-                                 isValid: value != null && value != ""
+                                 isValid: value != null && value !== "",
+                                 isTouched: true
                              }
-                        )           
+                        )
+                break;
+            default:
+                break;
         }
 
         if(newState.startTime.isValid &&

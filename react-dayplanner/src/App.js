@@ -28,9 +28,13 @@ class App extends Component {
   renderTodoList(){
     const { todos } = this.props;
 
-    return(Object.values(todos).map((todo) => 
-          <Todo {...todo} key={todo.id}/>
-    ))
+    return(
+      <div className="todo-list">
+        {Object.values(todos).map((todo) => 
+          <Todo {...todo} key={todo.id}/>)
+        }
+      </div>
+      )
   }
 
   render() {
