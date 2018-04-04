@@ -1,0 +1,6 @@
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\bin\Debug\Dayplanner.Model.dll
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\bin\Debug\Dayplanner.Model.pdb
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\obj\Debug\Dayplanner.Model.csprojResolveAssemblyReference.cache
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\obj\Debug\Dayplanner.Model.csproj.CoreCompileInputs.cache
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\obj\Debug\Dayplanner.Model.dll
+C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Model\obj\Debug\Dayplanner.Model.pdb
