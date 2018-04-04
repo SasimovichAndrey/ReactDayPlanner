@@ -39,6 +39,7 @@ export default class AddTodoForm extends Component{
                             timeFormat="HH:mm"
                             dateFormat="LLL"
                             showTimeSelect
+                            readOnly 
                             className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
                             />
                     </div>
@@ -54,6 +55,7 @@ export default class AddTodoForm extends Component{
                             timeFormat="HH:mm"
                             dateFormat="LLL"
                             showTimeSelect
+                            readOnly 
                             className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
                     </div>
                 </div>
