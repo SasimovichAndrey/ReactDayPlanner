@@ -7,16 +7,10 @@
   clear: both;
   display: block
 }
-
-
-.form .react-datepicker-wrapper, .form .react-datepicker__input-container{
-  width:100%;
-}
-
 .form-row{
   margin-bottom: 10px;
 }
 
-.form input{
+.form input, .form .react-date-picker, .form .react-date-picker__button{
   width:100%;
 }

@@ -9,8 +9,6 @@ import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 let store = configureStore(window.__INITIAL_STATE__);
 
 ReactDOM.render(

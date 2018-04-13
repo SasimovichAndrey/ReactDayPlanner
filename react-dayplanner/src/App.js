@@ -6,6 +6,8 @@ import { addTodo, getTodos } from './actions/todoActions'
 import UserView from './components/User'
 import AddTodoForm from './components/AddTodoForm'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -14,8 +16,7 @@ class App extends Component {
       newTodo:{
         startTime: null,
         endTime: null,
-        description: "",
-        isValid: false
+        description: ""
       }
     }
   }
@@ -69,11 +70,11 @@ class App extends Component {
       newTodo:{
         startTime: null,
         endTime: null,
-        description: "",
-        isValid: false
+        description: ""
       }
     })
 
+    debugger
     this.props.addTodo(newTodo);
   }
 

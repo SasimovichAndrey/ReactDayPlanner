@@ -1,28 +1,28 @@
 import React, { Component } from 'react'
 import moment from 'moment'
-import DatePicker from 'react-datepicker'
-
-import 'react-datepicker/dist/react-datepicker.css'
+import DatePicker from 'react-date-picker';
 
 export default class AddTodoForm extends Component{
+    initialState = {
+        isValid: false,
+        startTime:{
+            isValid: false,
+            isTouched: false
+        },
+        endTime:{
+            isValid: false,
+            isTouched: false
+        },
+        description: {
+            isValid: false,
+            isTouched: false
+        }
+    }
+
     constructor(props){
         super(props)
 
-        this.state = {
-            isValid: false,
-            startTime:{
-                isValid: false,
-                isTouched: false
-            },
-            endTime:{
-                isValid: false,
-                isTouched: false
-            },
-            description: {
-                isValid: false,
-                isTouched: false
-            }
-        }
+        this.state = this.initialState
     }
 
     render(){
@@ -34,11 +34,8 @@ export default class AddTodoForm extends Component{
                     </div>
                     <div className="col-12 col-md-3">
                         <DatePicker 
-                            selected={this.props.startTime == null ? null : moment(this.props.startTime)} 
+                            value={this.props.startTime == null ? null : moment(this.props.startTime)} 
                             onChange={(date) => this.onTodoChanged("startTime", date)} 
-                            timeFormat="HH:mm"
-                            dateFormat="LLL"
-                            showTimeSelect
                             readOnly 
                             className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
                             />
@@ -50,11 +47,8 @@ export default class AddTodoForm extends Component{
                     </div>
                     <div className="col-12 col-md-3">
                         <DatePicker 
-                            selected={this.props.endTime == null ? null : moment(this.props.endTime)} 
+                            value={this.props.endTime == null ? null : moment(this.props.endTime)} 
                             onChange={(date) => this.onTodoChanged("endTime", date)} 
-                            timeFormat="HH:mm"
-                            dateFormat="LLL"
-                            showTimeSelect
                             readOnly 
                             className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
                     </div>
@@ -71,11 +65,15 @@ export default class AddTodoForm extends Component{
                 </div>
                 <div className="row form-row justify-content-center">
                     <div className="col-12 col-md-5">
-                        <input type="button" onClick={ () => this.props.onSubmit() } value="add todo" disabled={!this.state.isValid}/>
+                        <input type="button" onClick={ () => {this.props.onSubmit(); this.onSubmit()} } value="add todo" disabled={!this.state.isValid}/>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    onSubmit(){
+        this.setState(Object.assign({}, this.state, {isValid: false }))
     }
 
     onTodoChanged(propName, value){
