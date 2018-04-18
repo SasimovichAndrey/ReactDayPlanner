@@ -9,16 +9,20 @@ import AddTodoForm from './components/AddTodoForm'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
+  initialState = {
+    newTodo:{
+      startDate: null,
+      startTime: null,
+      endDate: null,
+      endTime: null,
+      description: ""
+    }
+  }
+
   constructor(props){
     super(props);
 
-    this.state = {
-      newTodo:{
-        startTime: null,
-        endTime: null,
-        description: ""
-      }
-    }
+    this.state = this.initialState;
   }
 
   componentDidMount(){
@@ -61,20 +65,14 @@ class App extends Component {
 
   /* Event handlers */
   onAddTodo(){
+    debugger
     var newTodo = Object.assign({}, this.state.newTodo,{
       startTime: this.state.newTodo.startTime,
       endTime: this.state.newTodo.endTime
     })
 
-    this.setState({
-      newTodo:{
-        startTime: null,
-        endTime: null,
-        description: ""
-      }
-    })
+    this.setState(this.initialState)
 
-    debugger
     this.props.addTodo(newTodo);
   }
 
