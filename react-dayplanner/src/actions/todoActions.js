@@ -1,8 +1,11 @@
 import axios from 'axios'
 
+//var baseApiUrl = 'http://localhost:3001'
+var baseApiUrl = 'http://localhost:55334/api'
+
 export function addTodo(newTodo){
     return (dispatch) => {
-        axios.post('http://localhost:3001/todos', newTodo)
+        axios.post(`${baseApiUrl}/todos/`, newTodo)
             .then((response) => {
                 newTodo.id = response.data.id
 
@@ -16,9 +19,9 @@ export function addTodo(newTodo){
     }
 }
 
-export function getTodos(){
+export function getTodos(userId){
     return (dispatch, getState) => {
-        axios.get('http://localhost:3001/todos')
+        axios.get(`${baseApiUrl}/todos?userId=${userId}`)
             .then((response) => {
                 var action = {
                     type: 'TODOS_RECEIVED',

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dayplanner.Service.Interface;
 using DayplannerBackend.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -19,10 +20,18 @@ namespace DayplannerBackend.Controllers
         [HttpGet]
         public async Task<IEnumerable<TodoViewModel>> GetByUserId(int userId)
         {
-            var todos = await _todoService.GetTodosByUserId(userId);
-            var vms = Mapper.Map<IEnumerable<TodoViewModel>>(todos);
+            try
+            {
+                var todos = await _todoService.GetTodosByUserId(userId);
+                var vms = Mapper.Map<IEnumerable<TodoViewModel>>(todos);
 
-            return vms;
+                return vms;
+            }
+            catch(Exception e)
+            {
+                throw;
+            }
+
         }
     }
 }

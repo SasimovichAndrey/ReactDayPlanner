@@ -17,8 +17,10 @@ namespace Dayplanner.Service.Implementation
             TODOS.Add(new Todo
             {
                 Id = 0,
-                UserId = 0,
-                Description = "Test"
+                UserId = 1,
+                Description = "Test",
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now
             });
         }
 

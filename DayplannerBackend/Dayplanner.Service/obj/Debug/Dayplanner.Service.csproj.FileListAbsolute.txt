@@ -1,9 +1,0 @@
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\bin\Debug\Dayplanner.Service.dll
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\bin\Debug\Dayplanner.Service.pdb
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\bin\Debug\Dayplanner.Model.dll
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\bin\Debug\Dayplanner.Model.pdb
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\obj\Debug\Dayplanner.Service.csprojResolveAssemblyReference.cache
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\obj\Debug\Dayplanner.Service.csproj.CoreCompileInputs.cache
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\obj\Debug\Dayplanner.Service.csproj.CopyComplete
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\obj\Debug\Dayplanner.Service.dll
-C:\Users\asasimovich\source\projects\react-dayplanner\DayplannerBackend\Dayplanner.Service\obj\Debug\Dayplanner.Service.pdb

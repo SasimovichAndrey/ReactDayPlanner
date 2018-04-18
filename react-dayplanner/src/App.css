@@ -14,3 +14,7 @@
 .form input, .form .react-date-picker, .form .react-date-picker__button{
   width:100%;
 }
+
+.react-date-picker__calendar.react-date-picker__calendar--open{
+  z-index: 2;
+}

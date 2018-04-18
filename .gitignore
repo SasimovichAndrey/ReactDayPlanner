@@ -2,9 +2,13 @@
 
 # dependencies
 react-dayplanner/node_modules
+DayplannerBackend/packages
 
 # production
 react-dayplanner/build
+DayplannerBackend/*/bin
+DayplannerBackend/*/obj
+DayplannerBackend/.vs
 
 # misc
 .DS_Store

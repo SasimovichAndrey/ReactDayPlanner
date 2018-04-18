@@ -7,8 +7,8 @@ import './Todo.css'
 class Todo extends Component{
     render(){
         const { startTime, endTime, description } = this.props;
-        var startDateFormatted = moment(startTime).format("DD.MM.YY HH:mm")
-        var endDateFormatted = moment(endTime).format("DD.MM.YY HH:mm")
+        var startDateFormatted = moment(startTime).format("ddd DD.MM HH:mm")
+        var endDateFormatted = moment(endTime).format("ddd DD.MM HH:mm")
 
         var className = "todo-item"
         return(

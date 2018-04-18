@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using Dayplanner.Model;
 using DayplannerBackend.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace DayplannerBackend
 {

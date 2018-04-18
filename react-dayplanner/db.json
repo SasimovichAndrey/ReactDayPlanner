@@ -2,94 +2,28 @@
   "todos": [
     {
       "id": 1,
+      "userId": 1,
       "startTime": "2018-03-21T14:10:00.974Z",
       "endTime": "2018-03-21T14:10:00.974Z",
       "description": "test todo"
     },
     {
-      "id": 2,
-      "startTime": "2018-03-21T14:10:00.974Z",
-      "endTime": "2018-03-21T14:10:00.974Z",
-      "description": "test todo 2"
+      "startDate": null,
+      "startTime": "2018-04-02T21:00:00.000Z",
+      "endDate": null,
+      "endTime": "2018-04-29T21:00:00.000Z",
+      "description": "123",
+      "userId": 1,
+      "id": 2
     },
     {
-      "startTime": "2018-03-21T14:13:00.974Z",
-      "endTime": "2018-03-21T14:13:00.974Z",
-      "description": "desc",
+      "startDate": null,
+      "startTime": "2018-04-02T21:00:00.000Z",
+      "endDate": null,
+      "endTime": "2018-04-23T21:00:00.000Z",
+      "description": "tw3",
+      "userId": 1,
       "id": 3
-    },
-    {
-      "startTime": "2018-03-22T14:13:00.974Z",
-      "endTime": "2018-03-22T14:13:00.974Z",
-      "description": "dgdrh",
-      "id": 4
-    },
-    {
-      "startTime": "2018-03-24T14:13:00.974Z",
-      "endTime": "2018-03-24T14:13:00.974Z",
-      "description": "desc",
-      "id": 5
-    },
-    {
-      "startTime": "2018-03-21T14:13:00.974Z",
-      "endTime": "2018-03-21T14:13:00.974Z",
-      "description": "123",
-      "id": 6
-    },
-    {
-      "startTime": "2018-04-09T21:00:00.000Z",
-      "endTime": null,
-      "description": "123",
-      "isValid": false,
-      "id": 8
-    },
-    {
-      "startTime": "2018-04-04T14:30:18.762Z",
-      "endTime": "2018-04-04T16:30:21.178Z",
-      "description": "dada",
-      "isValid": false,
-      "id": 9
-    },
-    {
-      "startTime": "2018-04-18T21:00:00.000Z",
-      "endTime": "2018-05-04T21:00:00.000Z",
-      "description": "123",
-      "isValid": false,
-      "id": 10
-    },
-    {
-      "startTime": "2018-04-13T15:30:48.712Z",
-      "endTime": "2018-04-13T16:00:59.880Z",
-      "description": "123",
-      "isValid": false,
-      "id": 11
-    },
-    {
-      "startTime": null,
-      "endTime": null,
-      "description": "",
-      "isValid": false,
-      "id": 12
-    },
-    {
-      "startTime": "2018-04-13T16:30:30.656Z",
-      "endTime": "2018-04-13T17:30:32.046Z",
-      "description": "1233",
-      "isValid": false,
-      "id": 13
-    },
-    {
-      "startTime": "2018-04-13T16:00:45.876Z",
-      "endTime": "2018-04-13T17:00:47.764Z",
-      "description": "fesg",
-      "isValid": false,
-      "id": 14
-    },
-    {
-      "startTime": "2018-04-26T21:00:00.000Z",
-      "endTime": "2018-04-26T21:00:00.000Z",
-      "description": "123",
-      "id": 15
     }
   ]
 }

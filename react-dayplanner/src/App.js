@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.props.getTodos();
+    this.props.getTodos(this.props.userId);
   }
 
   /* Render methods */  
@@ -36,7 +36,7 @@ class App extends Component {
     return(
       <div className="todo-list row">
         {Object.values(todos).map((todo) => 
-          <div className="col-12 col-md-3" key={todo.id}>
+          <div className="col-12 col-md-4" key={todo.id}>
             <Todo {...todo} />
           </div>)
         }
@@ -65,10 +65,10 @@ class App extends Component {
 
   /* Event handlers */
   onAddTodo(){
-    debugger
     var newTodo = Object.assign({}, this.state.newTodo,{
       startTime: this.state.newTodo.startTime,
-      endTime: this.state.newTodo.endTime
+      endTime: this.state.newTodo.endTime,
+      userId: this.props.userId
     })
 
     this.setState(this.initialState)
@@ -85,7 +85,8 @@ class App extends Component {
 
 function mapStateToProps (state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    userId: state.user.id
   }
 }
 

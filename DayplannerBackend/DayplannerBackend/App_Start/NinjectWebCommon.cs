@@ -1,4 +1,7 @@
-﻿using Dayplanner.Service.Implementation;
+﻿using Dayplanner.Data.Infrastructure;
+using Dayplanner.Data.Repositories.Imp;
+using Dayplanner.Data.Repositories.Interface;
+using Dayplanner.Service.Implementation;
 using Dayplanner.Service.Interface;
 using DayplannerBackend;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -54,7 +57,9 @@ namespace DayplannerBackend
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ITodoDbService>().To<InMemoryTodoService>();
+            kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>().InRequestScope();
+            kernel.Bind<ITodoRepository>().To<TodoRepository>();
+            kernel.Bind<ITodoDbService>().To<TodoService>();
         }
     }
 }

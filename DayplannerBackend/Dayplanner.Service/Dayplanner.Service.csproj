@@ -41,12 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\InMemoryTodoService.cs" />
+    <Compile Include="Implementation\TodoService.cs" />
     <Compile Include="Interface\ITodoDbService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dayplanner.Data\Dayplanner.Data.csproj">
+      <Project>{273ad0d1-ea14-4aa2-9e3d-2bdf0d7964fc}</Project>
+      <Name>Dayplanner.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dayplanner.Model\Dayplanner.Model.csproj">
-      <Project>{5BDD79AF-3160-4B33-978F-A7AB7B22B87F}</Project>
+      <Project>{5bdd79af-3160-4b33-978f-a7ab7b22b87f}</Project>
       <Name>Dayplanner.Model</Name>
     </ProjectReference>
   </ItemGroup>
