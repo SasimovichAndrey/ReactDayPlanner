@@ -10,7 +10,7 @@ namespace DayplannerBackend
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<TodoViewModel, Todo>();
+                config.CreateMap<TodoViewModel, Todo>().ReverseMap();
             });
         }
     }

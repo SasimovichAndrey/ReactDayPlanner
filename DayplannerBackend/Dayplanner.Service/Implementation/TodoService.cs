@@ -18,6 +18,13 @@ namespace Dayplanner.Service.Implementation
             _todoRepo = todoRepo;
         }
 
+        public async Task<Todo> CreateNewTodo(Todo newTodo)
+        {
+            newTodo = await _todoRepo.Create(newTodo);
+
+            return newTodo;
+        }
+
         public async Task<List<Todo>> GetTodosByUserId(int userId)
         {
             var todos = await _todoRepo.GetAllByUserId(userId);

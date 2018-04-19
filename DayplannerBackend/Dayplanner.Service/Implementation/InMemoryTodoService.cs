@@ -24,6 +24,11 @@ namespace Dayplanner.Service.Implementation
             });
         }
 
+        public Task<Todo> CreateNewTodo(Todo newTodo)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Todo>> GetTodosByUserId(int userId)
         {
             return Task.FromResult(TODOS.Where(t => t.UserId == userId).ToList());

@@ -11,9 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 class App extends Component {
   initialState = {
     newTodo:{
-      startDate: null,
       startTime: null,
-      endDate: null,
       endTime: null,
       description: ""
     }
@@ -66,8 +64,8 @@ class App extends Component {
   /* Event handlers */
   onAddTodo(){
     var newTodo = Object.assign({}, this.state.newTodo,{
-      startTime: this.state.newTodo.startTime,
-      endTime: this.state.newTodo.endTime,
+      startDate: this.state.newTodo.startTime,
+      endDate: this.state.newTodo.endTime,
       userId: this.props.userId
     })
 

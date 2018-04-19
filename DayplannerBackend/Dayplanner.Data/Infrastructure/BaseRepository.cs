@@ -8,16 +8,26 @@ namespace Dayplanner.Data.Infrastructure
     public abstract class BaseRepository<TModel> : IRepository<TModel> where TModel: BaseEntity
     {
         protected ApplicationDbContext _context;
+        protected DbSet<TModel> _dbSet;
 
         public BaseRepository(ApplicationDbContext dbContext)
         {
-            this._context = dbContext;
+            _context = dbContext;
+            _dbSet = _context.Set<TModel>();
+        }
+
+        public async Task<TModel> Create(TModel entity)
+        {
+            _dbSet.Add(entity);
+
+            await _context.SaveChangesAsync();
+
+            return entity;
         }
 
         public async Task<TModel> GetById(int id)
         {
-            var set = _context.Set<TModel>();
-            var entity = await set.SingleOrDefaultAsync(e => e.Id == id);
+            var entity = await _dbSet.SingleOrDefaultAsync(e => e.Id == id);
 
             return entity;
         }

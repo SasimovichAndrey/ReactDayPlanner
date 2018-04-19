@@ -34,7 +34,7 @@ export default class AddTodoForm extends Component{
                     </div>
                     <div className="col-12 col-md-3">
                         <DatePicker 
-                            value={this.props.startTime == null ? null : moment(this.props.startTime)} 
+                            value={this.props.startTime == null ? null : this.props.startTime} 
                             onChange={(date) => this.onTodoChanged("startTime", date)} 
                             readOnly 
                             className={this.state.startTime.isValid || !this.state.startTime.isTouched ? null: "form-error"}
@@ -47,7 +47,7 @@ export default class AddTodoForm extends Component{
                     </div>
                     <div className="col-12 col-md-3">
                         <DatePicker 
-                            value={this.props.endTime == null ? null : moment(this.props.endTime)} 
+                            value={this.props.endTime == null ? null : this.props.endTime} 
                             onChange={(date) => this.onTodoChanged("endTime", date)} 
                             readOnly 
                             className={this.state.endTime.isValid  || !this.state.endTime.isTouched ? null: "form-error"}/>
