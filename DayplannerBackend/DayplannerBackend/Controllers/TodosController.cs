@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace DayplannerBackend.Controllers
 {
+    [Authorize]
     public class TodosController : ApiController
     {
         private ITodoDbService _todoService;

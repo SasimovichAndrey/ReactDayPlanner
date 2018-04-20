@@ -4,6 +4,7 @@ using Dayplanner.Data.Repositories.Interface;
 using Dayplanner.Service.Implementation;
 using Dayplanner.Service.Interface;
 using DayplannerBackend;
+using DayplannerBackend.App_Start;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
@@ -58,6 +59,7 @@ namespace DayplannerBackend
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<ApplicationDbContext>().To<ApplicationDbContext>().InRequestScope();
+            //kernel.Bind<ApplicationSignInManager>().To<ApplicationSignInManager>();
             kernel.Bind<ITodoRepository>().To<TodoRepository>();
             kernel.Bind<ITodoDbService>().To<TodoService>();
         }

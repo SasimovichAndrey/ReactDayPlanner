@@ -26,17 +26,32 @@ namespace DayplannerBackend.Controllers
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
+        private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? this.Request.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
 
         public AccountController()
         {
         }
 
         public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat,
+            ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+            _signInManager = signInManager;
         }
 
         public ApplicationUserManager UserManager
@@ -373,6 +388,30 @@ namespace DayplannerBackend.Controllers
                 return GetErrorResult(result);
             }
             return Ok();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("Login")]
+        //[ValidateAntiForgeryToken] wtf is this?
+        public async Task<IHttpActionResult> Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, change to shouldLockout: true
+            var signInManager = SignInManager;
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return Ok();
+                default:
+                    return BadRequest();
+            }
         }
 
         protected override void Dispose(bool disposing)
