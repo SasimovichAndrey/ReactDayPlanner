@@ -14,7 +14,7 @@ namespace Dayplanner.Data.Repositories.Imp
         {
         }
 
-        public async Task<List<Todo>> GetAllByUserId(int userId)
+        public async Task<List<Todo>> GetAllByUserId(string userId)
         {
             var todos = await _context.Set<Todo>()
                 .Where(t => t.UserId == userId)

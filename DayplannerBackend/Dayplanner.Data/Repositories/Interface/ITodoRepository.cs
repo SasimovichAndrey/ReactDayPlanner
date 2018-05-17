@@ -7,6 +7,6 @@ namespace Dayplanner.Data.Repositories.Interface
 {
     public interface ITodoRepository : IRepository<Todo>
     {
-        Task<List<Todo>> GetAllByUserId(int userId);
+        Task<List<Todo>> GetAllByUserId(string userId);
     }
 }

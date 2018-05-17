@@ -17,7 +17,7 @@ namespace Dayplanner.Service.Implementation
             TODOS.Add(new Todo
             {
                 Id = 0,
-                UserId = 1,
+                UserId = Guid.Empty.ToString(),
                 Description = "Test",
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now
@@ -29,7 +29,7 @@ namespace Dayplanner.Service.Implementation
             throw new NotImplementedException();
         }
 
-        public Task<List<Todo>> GetTodosByUserId(int userId)
+        public Task<List<Todo>> GetTodosByUserId(string userId)
         {
             return Task.FromResult(TODOS.Where(t => t.UserId == userId).ToList());
         }

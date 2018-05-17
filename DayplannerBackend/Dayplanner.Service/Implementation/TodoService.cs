@@ -25,7 +25,7 @@ namespace Dayplanner.Service.Implementation
             return newTodo;
         }
 
-        public async Task<List<Todo>> GetTodosByUserId(int userId)
+        public async Task<List<Todo>> GetTodosByUserId(string userId)
         {
             var todos = await _todoRepo.GetAllByUserId(userId);
 

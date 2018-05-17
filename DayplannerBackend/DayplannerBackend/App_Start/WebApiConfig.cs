@@ -27,8 +27,9 @@ namespace DayplannerBackend
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
             // cors
-            var corsAttr = new EnableCorsAttribute("http://localhost:3000", "*", "*");
-            config.EnableCors(corsAttr);
+            //var corsAttr = new EnableCorsAttribute("*", "*", "*");
+            //corsAttr.SupportsCredentials = true;
+            //config.EnableCors(corsAttr);
         }
     }
 }

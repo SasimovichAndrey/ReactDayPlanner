@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -79,7 +80,8 @@ namespace DayplannerBackend.Controllers
             {
                 Email = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
-                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
+                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null,
+                UserId = User.Identity.GetUserId()
             };
         }
 
@@ -394,23 +396,29 @@ namespace DayplannerBackend.Controllers
         [AllowAnonymous]
         [Route("Login")]
         //[ValidateAntiForgeryToken] wtf is this?
-        public async Task<IHttpActionResult> Login(LoginViewModel model)
+        public async Task<HttpResponseMessage> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return await BadRequest().ExecuteAsync(CancellationToken.None);
             }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var signInManager = SignInManager;
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, true, shouldLockout: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    return Ok();
+                    var response =  new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+
+                    response.Content = new StringContent("lul");
+                    response.Content.Headers.Add("Set-Cookie", "lalalal=ololo");
+
+                    return await Task.FromResult(response);
                 default:
-                    return BadRequest();
+                    return await BadRequest().ExecuteAsync(CancellationToken.None);
             }
         }
 

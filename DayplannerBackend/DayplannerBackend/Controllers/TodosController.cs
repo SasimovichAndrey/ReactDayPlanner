@@ -20,7 +20,7 @@ namespace DayplannerBackend.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TodoViewModel>> GetByUserId(int userId)
+        public async Task<IEnumerable<TodoViewModel>> GetByUserId(string userId)
         {
             var todos = await _todoService.GetTodosByUserId(userId);
             var vms = Mapper.Map<IEnumerable<TodoViewModel>>(todos);

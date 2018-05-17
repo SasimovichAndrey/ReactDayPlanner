@@ -6,7 +6,7 @@ namespace Dayplanner.Service.Interface
 {
     public interface ITodoDbService
     {
-        Task<List<Todo>> GetTodosByUserId(int userId);
+        Task<List<Todo>> GetTodosByUserId(string userId);
         Task<Todo> CreateNewTodo(Todo newTodo);
     }
 }

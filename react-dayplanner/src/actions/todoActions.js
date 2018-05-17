@@ -1,11 +1,9 @@
 import axios from 'axios'
-
-//var baseApiUrl = 'http://localhost:3001'
-var baseApiUrl = 'http://localhost:55334/api'
+import * as apiConstants from '../constants/apiConstants'
 
 export function addTodo(newTodo){
     return (dispatch) => {
-        axios.post(`${baseApiUrl}/todos/`, newTodo)
+        axios.post(`${apiConstants.BASE_API_URL}/todos/`, newTodo)
             .then((response) => {
                 newTodo.id = response.data.id
 
@@ -21,7 +19,7 @@ export function addTodo(newTodo){
 
 export function getTodos(userId){
     return (dispatch, getState) => {
-        axios.get(`${baseApiUrl}/todos?userId=${userId}`)
+        axios({url: `${apiConstants.BASE_API_URL}/todos/?userId=${userId}`, method: 'GET'})
             .then((response) => {
                 var action = {
                     type: 'TODOS_RECEIVED',
